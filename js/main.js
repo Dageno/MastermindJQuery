@@ -39,7 +39,7 @@
                 if(arrSolucion[i]===array[i]){
                     
                     $('#main div:last-child .check')[coincidencias].className = "check negro";
-                   
+                   array[i] = undefined;
                     negros++;
                     coincidencias++;
                 }
