@@ -59,7 +59,7 @@
                 elementosDiv.forEach(function(element){
                     element.setAttribute("style", "pointer-events: none;");
                 })
-
+                console.log(arrCopia);
                 crearLinea();
                 scrollTo(0, window.outerHeight);
                 $currentDiv = $('#main').last();
