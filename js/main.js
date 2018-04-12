@@ -29,6 +29,7 @@
            
             let arrayD = $('#main div:last-child .circulo');
             let array = [];
+            let arrCopia = arrSolucion;
             let negros = 0;
             for(let i = 0; i<arrayD.length;i++){
                 array[i] = arrayD[i].className.split(" ")[1];    
@@ -36,17 +37,17 @@
             
             let coincidencias = 0;
             for(let i = 0; i < 4; i++){
-                if(arrSolucion[i]===array[i]){
+                if(arrCopia[i]===array[i]){
                     
                     $('#main div:last-child .check')[coincidencias].className = "check negro";
-                   array[i] = undefined;
+                    arrCopia[i] = undefined;
                     negros++;
                     coincidencias++;
                 }
                     
             }
             if(coincidencias != 4){
-                array.forEach(function(elemento, index){
+                arrCopia.forEach(function(elemento, index){
                     if(arrSolucion.indexOf(elemento) >=0 && index != arrSolucion.indexOf(elemento)){
                         $('#main div:last-child .check')[coincidencias].className = "check blanco";
                         coincidencias++;
