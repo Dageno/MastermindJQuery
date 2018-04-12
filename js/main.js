@@ -48,7 +48,7 @@
             }
             if(coincidencias != 4){
                 arrCopia.forEach(function(elemento, index){
-                    if(arrSolucion.indexOf(elemento) >=0 && index != arrSolucion.indexOf(elemento)){
+                    if(arrCopia.indexOf(elemento) >=0 && index != arrCopia.indexOf(elemento)){
                         $('#main div:last-child .check')[coincidencias].className = "check blanco";
                         coincidencias++;
                     }
