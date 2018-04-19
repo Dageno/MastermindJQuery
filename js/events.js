@@ -25,11 +25,9 @@ let pintar = function(){
 
     for(let i = 0; i<4;i++){
         if($arrayPrueba[i].getAttribute("name") != "coloreado"){
+            $arrayPrueba[i].fadeOut("slow")
             $arrayPrueba[i].className += " "+color;
-            $arrayPrueba[i]
-                .fadeOut("slow")
-                .setAttribute('name', 'coloreado')
-                .fadeIn("slow");
+            $arrayPrueba[i].setAttribute('name', 'coloreado').fadeIn("slow");
             arrayPelotas[i] = color;
             comprobarArray();   
             return 0;
@@ -41,10 +39,7 @@ let borrar = function(){
   var index = Array.from(this.parentNode.children).indexOf(this);
   arrayPelotas[this.index] = undefined;
   $('#main div:last-child .circulo')[index].className = "circulo";
-  $('#main div:last-child .circulo')[index]
-      .fadeOut("slow")
-      .setAttribute("name", "prueba")
-      .fadeIn("slow");
+  $('#main div:last-child .circulo')[index].fadeOut("slow").setAttribute("name", "prueba").fadeIn("slow");
 
   console.log(arrayPelotas);
   
