@@ -24,13 +24,17 @@ let pintar = function(){
     let $arrayPrueba = $('#main .container:last-child .circulo');
 
     for(let i = 0; i<4;i++){
+        
         if($arrayPrueba[i].getAttribute("name") != "coloreado"){
+            $('#main .container:last-child .circulo:eq('+i+')').fadeOut();
             $arrayPrueba[i].className += " "+color;
             $arrayPrueba[i].setAttribute('name', 'coloreado');
             arrayPelotas[i] = color;
-            comprobarArray();   
+            comprobarArray();
+            $('#main .container:last-child .circulo:eq('+i+')').fadeIn();  
             return 0;
         }
+       
     }
    
 }

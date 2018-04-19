@@ -48,28 +48,34 @@
                     
             }
             if(coincidencias != 4){
-                arrCopia.forEach(function(elemento, index){
+                array.forEach(function(elemento, index){
                     if(arrCopia.indexOf(elemento) >=0 && index != arrCopia.indexOf(elemento)){
-                        $('#main div:last-child .check')[coincidencias].className = "check blanco";
+                        $('#main div:last-child .check')[coincidencias].className = 'check blanco';
                         arrCopia[arrCopia.indexOf(elemento)] = undefined;
                         coincidencias++;
+                        if(coincidencias == 4)
+                            return;
                     }
                 
                 });
-
+                
                 var elementosDiv = Array.prototype.slice.call($('#main div:last-child'));
                 elementosDiv.forEach(function(element){
                     element.setAttribute("style", "pointer-events: none;");
                      
                 })
                 arrCopia = arrSolucion.slice();
+
                 crearLinea();
                 scrollTo(0, window.outerHeight);
+
                 $currentDiv = $('#main').last();
                 coincidencias = 0;
                 arrayPelotas = [undefined, undefined, undefined, undefined];
+
                 comprobarArray();
                 asignarEventos();
+                
             }else{
 
                 var elementosDiv = Array.prototype.slice.call($('#main div:last-child'));
@@ -94,5 +100,3 @@
         }
 
     }
-
-    
