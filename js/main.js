@@ -5,6 +5,7 @@
 
         let colores = ["negro", "azul", "verde", "amarillo", "rojo", "naranja", "blanco", "marron"];
         let arrSolucion = new Array();
+        let arrCopia = new Array();
        
         var $element = $('.container')[0];
         var nuevo = $element.cloneNode(true);
@@ -20,6 +21,7 @@
             for(let i = 0; i<4;i++)
                 arrSolucion.push(colores[numeroAleatorio()])
             asignarEventos();
+            arrCopia = arrSolucion.slice();
             console.log(arrSolucion);
            
             
@@ -29,7 +31,6 @@
            
             let arrayD = $('#main div:last-child .circulo');
             let array = [];
-            let arrCopia = arrSolucion;
             let negros = 0;
             for(let i = 0; i<arrayD.length;i++){
                 array[i] = arrayD[i].className.split(" ")[1];    
@@ -50,6 +51,7 @@
                 arrCopia.forEach(function(elemento, index){
                     if(arrCopia.indexOf(elemento) >=0 && index != arrCopia.indexOf(elemento)){
                         $('#main div:last-child .check')[coincidencias].className = "check blanco";
+                        arrCopia[arrCopia.indexOf(elemento)] = undefined;
                         coincidencias++;
                     }
                 
@@ -58,8 +60,9 @@
                 var elementosDiv = Array.prototype.slice.call($('#main div:last-child'));
                 elementosDiv.forEach(function(element){
                     element.setAttribute("style", "pointer-events: none;");
+                     
                 })
-                console.log(arrCopia);
+                arrCopia = arrSolucion.slice();
                 crearLinea();
                 scrollTo(0, window.outerHeight);
                 $currentDiv = $('#main').last();
@@ -81,10 +84,6 @@
                 .fadeOut(400).fadeIn(400);
 
             }
-            
-                
-            
-        
             
         }
         
