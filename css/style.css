@@ -6,6 +6,8 @@ body{
     box-shadow: 0px 1px 1px 2px rgba(0,0,0,0.4);
     border-radius: 25px;
     margin-top: 2%;
+    display: flex;
+    flex-flow: column-reverse;
 }
 .cabecera{
     font-size: 2rem;
