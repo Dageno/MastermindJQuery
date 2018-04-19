@@ -67,7 +67,6 @@
                 arrCopia = arrSolucion.slice();
 
                 crearLinea();
-                scrollTo(0, window.outerHeight);
 
                 $currentDiv = $('#main').last();
                 coincidencias = 0;
