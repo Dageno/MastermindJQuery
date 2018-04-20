@@ -6,10 +6,6 @@
         let colores = ["negro", "azul", "verde", "amarillo", "rojo", "naranja", "blanco", "marron"];
         let arrSolucion = new Array();
         let arrCopia = new Array();
-       
-        var $element = $('.container')[0];
-        var nuevo = $element.cloneNode(true);
-        
         
 
         let numeroAleatorio = () => {
