@@ -1,3 +1,4 @@
+{
 let masterMind = new MasterMind();
 let currentDiv =$('#main .container').first();
 window.onload = masterMind.init;
@@ -132,7 +133,7 @@ $('[name=menu]').on('click', pintar);
 
 
 
-
+}
 
 
 
