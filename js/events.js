@@ -88,7 +88,7 @@ let pintar = function(){
 }
 let borrar = function(){
   var index = Array.from(this.parentNode.children).indexOf(this);
-  arrayPelotas[this.index] = undefined;
+  arrayPelotas[index] = undefined;
   $('#main div:first-child .circulo')[index].className = "circulo";
   $('#main div:first-child .circulo')[index].setAttribute("name", "prueba");
 
