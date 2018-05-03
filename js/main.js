@@ -1,11 +1,9 @@
-
-     let $currentDiv = $('#main').last();
-
     let MasterMind = function(){
 
         let colores = ["negro", "azul", "verde", "amarillo", "rojo", "naranja", "blanco", "marron"];
         let arrSolucion = new Array();
         let arrCopia = new Array();
+        
         
 
         let numeroAleatorio = () => {
@@ -23,68 +21,50 @@
             
         }
     
-        let comprobarCoincidencia = function (){
+        let comprobarCoincidencia = function (array){
            
-            let arrayD = $('#main div:last-child .circulo');
-            let array = [];
+            let pelotasCheck;
             let negros = 0;
-            for(let i = 0; i<arrayD.length;i++){
-                array[i] = arrayD[i].className.split(" ")[1];    
-            }
-            
+            let blancos = 0;
             let coincidencias = 0;
+            arrCopia = arrSolucion.slice();
+
             for(let i = 0; i < 4; i++){
                 if(arrCopia[i]===array[i]){
                     
-                    $('#main div:last-child .check')[coincidencias].className = "check negro";
                     arrCopia[i] = undefined;
+                    array[i] = undefined;
                     negros++;
                     coincidencias++;
                 }
                     
             }
-            if(coincidencias != 4){
+
+            if(negros === 4)
+                return pelotasCheck = {
+                    negras: negros,
+                    blancas: blancos,
+                    victoria: true
+
+                }
+
+            
                 array.forEach(function(elemento, index){
                     if(arrCopia.indexOf(elemento) >=0 && index != arrCopia.indexOf(elemento)){
-                        $('#main div:last-child .check')[coincidencias].className = 'check blanco';
                         arrCopia[arrCopia.indexOf(elemento)] = undefined;
                         coincidencias++;
-                        if(coincidencias == 4)
-                            return;
+                        blancos++;
                     }
                 
                 });
+
+                return pelotasCheck = {
+                    negras: negros,
+                    blancas: blancos,
+                    victoria: false
+    
+                }
                 
-                var elementosDiv = Array.prototype.slice.call($('#main div:last-child'));
-                elementosDiv.forEach(function(element){
-                    element.setAttribute("style", "pointer-events: none;");
-                     
-                })
-                arrCopia = arrSolucion.slice();
-
-                crearLinea();
-
-                $currentDiv = $('#main').last();
-                coincidencias = 0;
-                arrayPelotas = [undefined, undefined, undefined, undefined];
-
-                comprobarArray();
-                asignarEventos();
-                
-            }else{
-
-                var elementosDiv = Array.prototype.slice.call($('#main div:last-child'));
-                elementosDiv.forEach(function(element){
-                    element.setAttribute("style", "pointer-events: none;");
-                })
-                
-                $(".close").click(function(){
-                    $("#info").animate({left:"+=10px"}).animate({left:"-5000px"});
-                });
-                $("#info").fadeOut(800).fadeIn(800).fadeOut(400).fadeIn(400)
-                .fadeOut(400).fadeIn(400);
-
-            }
             
         }
         
