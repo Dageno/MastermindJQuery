@@ -14,7 +14,6 @@
             
             for(let i = 0; i<4;i++)
                 arrSolucion.push(colores[numeroAleatorio()])
-            asignarEventos();
             arrCopia = arrSolucion.slice();
             console.log(arrSolucion);
            
